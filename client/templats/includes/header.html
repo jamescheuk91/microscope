@@ -8,15 +8,24 @@
           <span class="incon-bar"></span>
           <span class="incon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{pathFor 'postsList'}}">
+        <a class="navbar-brand" href="{{pathFor 'home'}}">
           Microscope
         </a>
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
+          <li class="{{activeRouteClass 'home' 'newPosts'}}">
+            <a href="{{pathFor 'newPosts'}}">New</a>
+          </li>
+          <li class="{{activeRouteClass 'bestPosts'}}">
+            <a href="{{pathFor 'bestPosts'}}">Best</a>
+          </li>
           {{#if currentUser}}
-            <li>
+            <li class="{{activeRouteClass 'postSubmit'}}">
               <a href="{{pathFor 'postSubmit'}}">New Post</a>
+            </li>
+            <li>
+              {{> notifications}}
             </li>
           {{/if}}
         </ul>
